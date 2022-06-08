@@ -16,8 +16,8 @@
 
 <!-- SvelteKit Dynamic Header -->
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Home Page" />
+	<title>Axial Leaderboards</title>
+	<meta name="description" content="Check the top stakers of sAXIAL and veAXIAL, in real-time!" />
 </svelte:head>
 
 <!-- Page Content -->
@@ -33,7 +33,6 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		height: calc(100vh - 105px);
 	}
 	
 </style>

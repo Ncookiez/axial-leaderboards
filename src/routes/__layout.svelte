@@ -21,6 +21,7 @@
 	main {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 		flex: 1 0;
 		overflow: hidden auto;
 	}

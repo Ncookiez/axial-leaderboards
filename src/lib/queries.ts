@@ -1,7 +1,7 @@
 
 // Imports:
 import { sAXIALABI, veAXIALABI } from '$lib/abis';
-import { multicallOneContractQuery, parseBN } from 'weaverfi/dist/functions';
+import { multicallOneContractQuery, parseBN } from 'weaverfi/dist/functions.js';
 import weaver from 'weaverfi';
 
 // Type Imports:

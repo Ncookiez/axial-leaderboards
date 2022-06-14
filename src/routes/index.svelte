@@ -12,10 +12,14 @@
 	const refreshTimeInSeconds = 10;
 	let sAXIALBalances: { wallet: Address, balance: number }[] = [];
 	let veAXIALBalances: { wallet: Address, accrued: number, staked: number }[] = [];
+	let veAXIALAltSort = false;
 
 	// Reactive Staked Totals:
 	$: sAXIALTotal = sAXIALBalances.reduce((prev, curr) => prev + curr.balance, 0);
 	$: veAXIALTotal = veAXIALBalances.reduce((prev, curr) => prev + curr.accrued, 0);
+
+	// Reactive Sorted veAXIAL Balances Variable:
+	$: veAXIALSortedBalances = veAXIALAltSort ? veAXIALBalances.slice(0, leaderboardSize).sort((a, b) => b.staked - a.staked) : veAXIALBalances.slice(0, leaderboardSize);
 
 	// Function to format numbers:
 	const formatNum = (num: number) => {
@@ -88,7 +92,8 @@
 	<!-- veAXIAL Leaderboard -->
 	<div class="veAXIAL">
 		<h2>veAXIAL</h2>
-		{#each veAXIALBalances.slice(0, leaderboardSize) as veAXIALStake, i}
+		<span class="sort">Sorted by <strong>{veAXIALAltSort ? 'Staked' : 'Accrued'}</strong> Tokens <i class="icofont-exchange" on:click={() => veAXIALAltSort = !veAXIALAltSort} /></span>
+		{#each veAXIALSortedBalances as veAXIALStake, i}
 			<span class="entry">
 				<span class="ranking">{i + 1}.</span>
 				<span class="wallet"><a href="https://snowtrace.io/address/{veAXIALStake.wallet}" target="__blank">{veAXIALStake.wallet.slice(0, 6)}…{veAXIALStake.wallet.slice(veAXIALStake.wallet.length - 4)}</a>:</span>
@@ -147,6 +152,16 @@
 		background-color: var(--secondary-color);
 		border: 2px solid var(--accent-color);
 		border-radius: 1em;
+	}
+
+	.sort {
+		margin-bottom: .5em;
+		text-align: center;
+		font-size: .8em;
+	}
+
+	.sort > i {
+		cursor: pointer;
 	}
 	
 	.entry {

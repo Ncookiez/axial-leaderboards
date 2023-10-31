@@ -8,8 +8,8 @@
 	import type { Address } from 'weaverfi/dist/types';
 
 	// Initializations:
-	const leaderboardSize = 10;
-	const refreshTimeInSeconds = 10;
+	const leaderboardSize = 20;
+	const refreshTimeInSeconds = 30;
 	let sAXIALBalances: { wallet: Address, balance: number }[] = [];
 	let veAXIALBalances: { wallet: Address, accrued: number, staked: number }[] = [];
 	let veAXIALAltSort = false;
@@ -82,7 +82,7 @@
 		{#each sAXIALBalances.slice(0, leaderboardSize) as sAXIALStake, i}
 			<span class="entry">
 				<span class="ranking">{i + 1}.</span>
-				<span class="wallet"><a href="https://snowtrace.io/address/{sAXIALStake.wallet}" target="__blank">{sAXIALStake.wallet.slice(0, 6)}…{sAXIALStake.wallet.slice(sAXIALStake.wallet.length - 4)}</a>:</span>
+				<span class="wallet"><a href="https://avascan.info/blockchain/c/address/{sAXIALStake.wallet}" target="__blank">{sAXIALStake.wallet.slice(0, 6)}…{sAXIALStake.wallet.slice(sAXIALStake.wallet.length - 4)}</a>:</span>
 				<span class="balance">{formatNum(sAXIALStake.balance)} sAXIAL</span>
 				<span class="percentage">({((sAXIALStake.balance / sAXIALTotal) * 100).toFixed(2)}%)</span>
 			</span>
@@ -96,7 +96,7 @@
 		{#each veAXIALSortedBalances as veAXIALStake, i}
 			<span class="entry">
 				<span class="ranking">{i + 1}.</span>
-				<span class="wallet"><a href="https://snowtrace.io/address/{veAXIALStake.wallet}" target="__blank">{veAXIALStake.wallet.slice(0, 6)}…{veAXIALStake.wallet.slice(veAXIALStake.wallet.length - 4)}</a>:</span>
+				<span class="wallet"><a href="https://avascan.info/blockchain/c/address/{veAXIALStake.wallet}" target="__blank">{veAXIALStake.wallet.slice(0, 6)}…{veAXIALStake.wallet.slice(veAXIALStake.wallet.length - 4)}</a>:</span>
 				<span class="balance">{formatNum(veAXIALStake.accrued)} veAXIAL</span>
 				<span class="percentage">({((veAXIALStake.accrued / veAXIALTotal) * 100).toFixed(2)}%)</span>
 				<span class="staked">+{formatNum(veAXIALStake.staked)}/s</span>

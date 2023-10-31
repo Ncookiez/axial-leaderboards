@@ -3,6 +3,9 @@
 	// Initializations:
 	const githubUser = 'Ncookiez';
 	const githubLink = `https://github.com/${githubUser}`;
+
+	const githubUser1 = 'cinquemb';
+	const githubLink1 = `https://github.com/${githubUser1}`;
 	
 </script>
 
@@ -13,7 +16,10 @@
 	<!-- Footer Content -->
 	<span>Made with </span>
 	<i id="heart" />
-	<span> by <a href="{githubLink}">Ncookie</a></span>
+	<span> by <a href="{githubLink}">Ncookie</a></span> / 
+	<span>Modded with </span>
+	<i id="heart" />
+	<span> by <a href="{githubLink1}">cinquemb</a></span>
 
 </footer>
 

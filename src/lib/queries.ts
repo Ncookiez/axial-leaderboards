@@ -20,8 +20,10 @@ export const fetchSAXIALBalances = async () => {
   // Initializations:
   let balances: { wallet: Address, balance: number }[] = [];
 
+  console.log(weaver);
+
   // Fetching Users:
-  let users: Address[] = await weaver.AVAX.query(sAXIAL, sAXIALABI, 'getAllUsers', []);
+  let users: Address[] = await weaver.avax.query(sAXIAL, sAXIALABI, 'getAllUsers', []);
 
   // sAXIAL Balance Multicall:
   let balanceCalls: CallContext[] = [];
@@ -47,7 +49,7 @@ export const fetchVeAXIALBalances = async () => {
   let balances: { wallet: Address, accrued: number, staked: number }[] = [];
 
   // Fetching Users:
-  let users: Address[] = await weaver.AVAX.query(veAXIAL, veAXIALABI, 'getAllUsers', []);
+  let users: Address[] = await weaver.avax.query(veAXIAL, veAXIALABI, 'getAllUsers', []);
 
   // veAXIAL Accrued Multicall:
   let accruedCalls: CallContext[] = [];
